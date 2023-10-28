@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+ <class name="com.mydata.Student" discriminator-value="Stud" table="type1Student">
+ 	<id name="roll">
+ 		<generator class="assigned"></generator>
+ 	</id>
+ 	<discriminator column="typeofStud" type="string" ></discriminator>
+	<property name="name"></property>
+	<property name="cname"></property>
+	
+	<subclass name="com.mydata.BEstudent" discriminator-value="BE">
+		<property name="stream"></property>
+		<property name="grade"></property>
+	</subclass>
+	 
+	<subclass name="com.mydata.BCSstudent" discriminator-value="BCS">
+		<property name="subject"></property>
+		<property name="per"></property>
+	</subclass>
+ </class>
+ </hibernate-mapping>

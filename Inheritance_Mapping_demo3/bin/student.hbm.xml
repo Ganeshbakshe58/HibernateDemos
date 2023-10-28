@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+ <class name="com.mydata.Student" table="type3Student">
+ 	<id name="roll">
+ 		<generator class="assigned"></generator>
+ 	</id>
+	<property name="name"></property>
+	<property name="cname"></property>
+	
+	<joined-subclass name="com.mydata.BEstudent" table="Type3BE">
+		<key column="roll"></key>
+		<property name="stream"></property>
+		<property name="grade"></property>
+	</joined-subclass>
+	
+	 
+	<joined-subclass name="com.mydata.BCSstudent" table="Type3BCS">
+		<key column="roll"></key>
+		<property name="subject"></property>
+		<property name="per"></property>
+	</joined-subclass>
+ </class>
+ </hibernate-mapping>
